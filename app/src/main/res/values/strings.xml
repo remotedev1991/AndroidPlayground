@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">AndroidPlayground</string>
+    <string name="hello_everyone">Hello Everyone!!!</string>
+    <string name="click_me">Click me!</string>
+    <string name="simple_background">simple background</string>
+</resources>
+
+    <!--Localisation-->
