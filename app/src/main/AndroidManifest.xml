@@ -18,12 +18,19 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.AndroidPlayground">
         <activity
-            android:name=".ListViewExample"
+            android:name=".SpinnerExample"
             android:exported="true">
+
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+
+        </activity>
+        <activity
+            android:name=".ListViewExample"
+            android:exported="true">
+
         </activity>
         <activity
             android:name=".GalleryActivity"
@@ -33,10 +40,8 @@
             android:exported="false" />
         <activity
             android:name=".MainActivity"
-            android:exported="true"
-            android:launchMode="singleTask">
-
-        </activity>
+            android:exported="false"
+            android:launchMode="singleTask"/>
 
         <provider
             android:name="androidx.core.content.FileProvider"
