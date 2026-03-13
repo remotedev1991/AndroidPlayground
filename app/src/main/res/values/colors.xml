@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <color name="black">#FF000000</color>
+    <color name="profile_name">#6B3C3C</color>
     <color name="white">#FFFFFFFF</color>
     <color name="error_color">#D70E0E</color>
 </resources>
