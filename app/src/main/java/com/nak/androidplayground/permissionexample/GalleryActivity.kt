@@ -1,4 +1,4 @@
-package com.nak.androidplayground
+package com.nak.androidplayground.permissionexample
 
 import android.os.Bundle
 import android.util.Log
@@ -6,6 +6,7 @@ import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import com.nak.androidplayground.R
 
 class GalleryActivity : AppCompatActivity() {
 

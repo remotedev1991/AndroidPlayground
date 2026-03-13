@@ -1,26 +1,22 @@
-package com.nak.androidplayground
+package com.nak.androidplayground.permissionexample
 
 import android.Manifest
 import android.annotation.SuppressLint
-import android.app.Activity
 import android.content.Intent
 import android.content.Intent.ACTION_SEND
 import android.net.Uri
 import android.os.Bundle
 import android.os.Environment
-import android.os.Parcelable
 import android.util.Log
 import android.widget.Button
 import android.widget.ImageView
-import android.widget.TextView
 import androidx.activity.enableEdgeToEdge
-import androidx.activity.result.ActivityResult
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.FileProvider
-import androidx.core.net.toUri
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import com.nak.androidplayground.R
 import java.io.File
 
 
@@ -36,6 +32,10 @@ class MainActivity : AppCompatActivity() {
             imageView.setImageURI(uri?.get(0))
         }
 
+    val launcherForGettingResult = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) {
+        //
+    }
+
     val permissionLauncher =
         registerForActivityResult(ActivityResultContracts.RequestPermission()) {
             isGranted ->
@@ -44,7 +44,7 @@ class MainActivity : AppCompatActivity() {
                     this,
                     "${packageName}.provider",
                     file
-                )
+                ) //path of the clicked image
                 cameraLauncher.launch(uri)
             } else {
                 Log.d(TAG, "permission has been denied: ")
@@ -77,7 +77,13 @@ class MainActivity : AppCompatActivity() {
 
         launchCamera.setOnClickListener {
             permissionLauncher.launch(Manifest.permission.CAMERA)
+
+            val intent = Intent(this@MainActivity, DetailsActivity::class.java)
+            launcherForGettingResult.launch(intent)
+
         }
+
+
 
         button.setOnClickListener {
             val intent = Intent(ACTION_SEND)

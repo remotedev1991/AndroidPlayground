@@ -1,7 +1,6 @@
-package com.nak.androidplayground
+package com.nak.androidplayground.listview
 
 import android.annotation.SuppressLint
-import android.content.DialogInterface
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
@@ -13,6 +12,7 @@ import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import com.nak.androidplayground.R
 
 class ListViewExample : AppCompatActivity() {
 

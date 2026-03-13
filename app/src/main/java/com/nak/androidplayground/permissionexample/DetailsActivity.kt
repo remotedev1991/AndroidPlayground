@@ -1,7 +1,6 @@
-package com.nak.androidplayground
+package com.nak.androidplayground.permissionexample
 
 import android.annotation.SuppressLint
-import android.app.Activity
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
@@ -10,6 +9,7 @@ import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import com.nak.androidplayground.R
 
 class DetailsActivity : AppCompatActivity() {
 
@@ -41,13 +41,13 @@ class DetailsActivity : AppCompatActivity() {
         setOKResultButton.setOnClickListener {
             val data = Intent()
             data.putExtra("data", "Result from details activity")
-            setResult(Activity.RESULT_OK, data)
+            setResult(RESULT_OK, data)
             finish()
         }
 
         val setNoResultButton = findViewById<Button>(R.id.set_no_result_button)
         setNoResultButton.setOnClickListener {
-            setResult(Activity.RESULT_CANCELED)
+            setResult(RESULT_CANCELED)
             finish()
         }
 

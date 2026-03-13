@@ -1,4 +1,4 @@
-package com.nak.androidplayground
+package com.nak.androidplayground.listview
 
 import android.content.Context
 import android.util.Log
@@ -8,7 +8,7 @@ import android.view.ViewGroup
 import android.widget.ArrayAdapter
 import android.widget.Button
 import android.widget.TextView
-import androidx.appcompat.app.AlertDialog
+import com.nak.androidplayground.R
 
 class CourseAdapter(
     context: Context,
@@ -27,7 +27,8 @@ class CourseAdapter(
 
         if (convertView == null) {
             Log.d("TAG", "getView: convertView creating new view ${countView++}")
-            view = LayoutInflater.from(context).inflate(R.layout.list_item,
+            view = LayoutInflater.from(context).inflate(
+                R.layout.list_item,
                 parent, false)
             viewHolder = ViewHolder(view)
             view.tag = viewHolder

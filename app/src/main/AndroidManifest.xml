@@ -18,13 +18,26 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.AndroidPlayground">
         <activity
-            android:name=".SpinnerExample"
+            android:name=".listview.SpinnerExample"
             android:exported="true">
         </activity>
 
         <activity
-            android:name=".ListViewExample"
+            android:name=".listview.ListViewExample"
             android:exported="true">
+        </activity>
+
+
+        <activity
+            android:name=".permissionexample.GalleryActivity"
+            android:exported="false" />
+        <activity
+            android:name=".permissionexample.DetailsActivity"
+            android:exported="false" />
+        <activity
+            android:name=".permissionexample.MainActivity"
+            android:exported="true"
+            android:launchMode="singleTask">
 
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -32,18 +45,6 @@
             </intent-filter>
 
         </activity>
-
-
-        <activity
-            android:name=".GalleryActivity"
-            android:exported="false" />
-        <activity
-            android:name=".DetailsActivity"
-            android:exported="false" />
-        <activity
-            android:name=".MainActivity"
-            android:exported="false"
-            android:launchMode="singleTask"/>
 
         <provider
             android:name="androidx.core.content.FileProvider"
