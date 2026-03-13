@@ -20,6 +20,11 @@
         <activity
             android:name=".SpinnerExample"
             android:exported="true">
+        </activity>
+
+        <activity
+            android:name=".ListViewExample"
+            android:exported="true">
 
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -27,11 +32,8 @@
             </intent-filter>
 
         </activity>
-        <activity
-            android:name=".ListViewExample"
-            android:exported="true">
 
-        </activity>
+
         <activity
             android:name=".GalleryActivity"
             android:exported="false" />

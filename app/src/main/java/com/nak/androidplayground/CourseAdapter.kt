@@ -8,9 +8,14 @@ import android.view.ViewGroup
 import android.widget.ArrayAdapter
 import android.widget.Button
 import android.widget.TextView
-import android.widget.Toast
+import androidx.appcompat.app.AlertDialog
 
-class CourseAdapter(context: Context, private var courses: MutableList<String>) :
+class CourseAdapter(
+    context: Context,
+    private var courses: MutableList<String>,
+    val onDeleteButtonClicked: (Int) -> Unit
+) :
+
     ArrayAdapter<String>(context, 0, courses) {
 
     var countView: Int = 0
@@ -33,19 +38,10 @@ class CourseAdapter(context: Context, private var courses: MutableList<String>) 
 
         viewHolder.textView.text = courses[position]
         viewHolder.button.setOnClickListener {
-            courses.removeAt(position) //deleting from the list
-            notifyDataSetChanged() //refreshing the Adapter
+            onDeleteButtonClicked(position)
         }
         return view
     }
-
-    // Problems with list view
-
-    //no built in view holder pattern
-    //there are no built in animations
-    //no built in decorations
-    //no layout manager
-    //no built in support for multiple row types
 
     fun submitList(list: MutableList<String>) {
         notifyDataSetChanged()

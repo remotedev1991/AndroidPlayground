@@ -1,6 +1,7 @@
 package com.nak.androidplayground
 
 import android.annotation.SuppressLint
+import android.content.DialogInterface
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
@@ -8,6 +9,7 @@ import android.widget.Button
 import android.widget.EditText
 import android.widget.ListView
 import androidx.activity.enableEdgeToEdge
+import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
@@ -30,10 +32,26 @@ class ListViewExample : AppCompatActivity() {
             "Item $index"
         }
         listView = findViewById(R.id.list_view) //find the object
-        val courseAdapter = CourseAdapter(this, items)
+        val courseAdapter = CourseAdapter(this, items) { position ->
+            //click the button will come here
+            val builder = AlertDialog.Builder(this@ListViewExample)
+            builder.setTitle("Are you sure ? ")
+            builder.setMessage("The item will be removed from the list after this action.")
+            builder.setPositiveButton("Yes") { dialog, which ->
+                items.removeAt(position)
+                val adapter = listView?.adapter as CourseAdapter
+                adapter.notifyDataSetChanged()
+            }
+
+            builder.setNegativeButton("Cancel") { dialog, which ->
+                dialog.dismiss()
+            }
+
+            val dialog = builder.create()
+            dialog.show()
+
+        }
         listView?.adapter = courseAdapter
-
-
 
         //Dynamically add new item
 
